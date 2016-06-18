@@ -35,8 +35,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR9-Pm-KGG">
-                                <rect key="frame" x="130" y="222" width="117" height="84"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR9-Pm-KGG">
+                                <rect key="frame" x="136" y="222" width="104" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -55,6 +55,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="yKc-5t-WE9" firstAttribute="centerX" secondItem="cxb-q0-1vV" secondAttribute="centerX" id="2X3-eV-gdT"/>
                             <constraint firstItem="Fj4-Ek-Pky" firstAttribute="top" secondItem="43p-gJ-oVc" secondAttribute="bottom" constant="8" id="2ph-7r-11s"/>
@@ -68,13 +69,22 @@
                             <constraint firstItem="cxb-q0-1vV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uUB-IW-IdQ"/>
                             <constraint firstItem="43p-gJ-oVc" firstAttribute="top" secondItem="cxb-q0-1vV" secondAttribute="bottom" constant="8" id="wct-QQ-6IH"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Uvf-th-9PI" appends="YES" id="6nm-L2-hqP"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="celsiusLabel" destination="jR9-Pm-KGG" id="NHX-f7-onl"/>
+                        <outlet property="textField" destination="cxb-q0-1vV" id="gKu-VJ-NfE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Uvf-th-9PI">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="ZyK-uG-lrx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="455.5" y="296.5"/>
         </scene>
