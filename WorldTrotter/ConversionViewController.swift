@@ -27,11 +27,17 @@ class ConversionViewController: UIViewController{
         }
     }
     
-    
+    let numberFormartter: NSNumberFormatter = {
+        let nf = NSNumberFormatter()
+        nf.numberStyle = .DecimalStyle
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf
+    }()
     
     func updatCelsiusValues(){
         if let value = celsiusValue{
-            self.celsiusLabel.text = "\(value)"
+            self.celsiusLabel.text = self.numberFormartter.stringFromNumber(value)
         }else{
             self.celsiusLabel.text = "???"
         }
