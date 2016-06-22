@@ -12,6 +12,7 @@
 		92193F411D1467AC00EEED61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92193F401D1467AC00EEED61 /* Assets.xcassets */; };
 		92193F441D1467AC00EEED61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92193F421D1467AC00EEED61 /* LaunchScreen.storyboard */; };
 		92193F4C1D15115700EEED61 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92193F4B1D15115700EEED61 /* ConversionViewController.swift */; };
+		92193F9A1D1B583400EEED61 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92193F991D1B583400EEED61 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		92193F431D1467AC00EEED61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92193F451D1467AC00EEED61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92193F4B1D15115700EEED61 /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
+		92193F991D1B583400EEED61 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92193F9A1D1B583400EEED61 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +41,7 @@
 		92193F2D1D1467AB00EEED61 = {
 			isa = PBXGroup;
 			children = (
+				92193F991D1B583400EEED61 /* MapKit.framework */,
 				92193F381D1467AB00EEED61 /* WorldTrotter */,
 				92193F371D1467AB00EEED61 /* Products */,
 			);
@@ -286,6 +290,7 @@
 				92193F4A1D1467AC00EEED61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
