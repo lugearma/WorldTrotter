@@ -59,14 +59,53 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        let existingTextHasDecimalSeparator = textField.text?.rangeOfString(".")
-        let replacementTextHasDecimalSeparator = string.rangeOfString(".")
+        var newString: NSString!
+        
+        if let text = textField.text{
+            newString = self.convertStringToNSString(string: string)
+            
+            for i in 0 ..< newString.length{
+                let c = newString!.characterAtIndex(i)
+                return self.isCharacter(c, text: text, stringToChange: string)
+            }
+        }
+        return false
+    }
+    
+    func convertStringToNSString(string s : String) -> NSString {
+        return NSString(string: s)
+    }
+    
+    func isNumber(text t: String, stringToChange stc: String) -> Bool {
+        let existingTextHasDecimalSeparator = t.rangeOfString(".")
+        let replacementTextHasDecimalSeparator = stc.rangeOfString(".")
         
         if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil{
-            print("no encontro nadad")
             return false
         }else{
             return true
         }
     }
+    
+    func isCharacter(char: unichar, text t: String, stringToChange stc: String) -> Bool {
+        let characterSet = NSCharacterSet.letterCharacterSet()
+        
+        if characterSet.characterIsMember(char) {
+            return false
+        } else {
+            return self.isNumber(text: t, stringToChange: stc)
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
