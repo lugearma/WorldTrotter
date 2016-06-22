@@ -58,8 +58,12 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
     //MARK: TextField delegate methods
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
+        var newReplacementString: NSString = string
         var newString: NSString!
+        
+        if newReplacementString.isEqualToString(" "){
+            return false
+        }
         
         if let text = textField.text{
             newString = self.convertStringToNSString(string: string)
@@ -82,9 +86,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         
         if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil{
             return false
-        }else{
-            return true
         }
+        return true
     }
     
     func isCharacter(char: unichar, text t: String, stringToChange stc: String) -> Bool {
@@ -92,9 +95,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         
         if characterSet.characterIsMember(char) {
             return false
-        } else {
-            return self.isNumber(text: t, stringToChange: stc)
         }
+        return self.isNumber(text: t, stringToChange: stc)
     }
 }
 
