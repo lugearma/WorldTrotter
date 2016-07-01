@@ -7,11 +7,29 @@
 //
 
 import UIKit
+import Foundation
 
 class ConversionViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var celsiusLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("Conversion view controller loaded its view")
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let redColor = self.createRandomNumber()/255
+        let greenColor = self.createRandomNumber()/255
+        let blueColor = self.createRandomNumber()/255
+        print(redColor)
+        self.view.backgroundColor = UIColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1.0)
+    }
+    
+    func createRandomNumber() -> CGFloat{
+        return CGFloat(arc4random_uniform(255))
+    }
     
     var fahrenheitValue: Double? {
         didSet{
