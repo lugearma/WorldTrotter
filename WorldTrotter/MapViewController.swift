@@ -32,6 +32,21 @@ class MapViewController: UIViewController {
         topConstrain.active = true
         leadingContrain.active = true
         trailingContrain.active = true
+        
+        segmentControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged), forControlEvents: .ValueChanged)
+    }
+    
+    func mapTypeChanged(segControl: UISegmentedControl) {
+        switch segControl.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .Standard
+        case 1:
+            mapView.mapType = .Hybrid
+        case 2:
+            mapView.mapType = .Satellite
+        default:
+            break
+        }
     }
     
     override func viewDidLoad() {
