@@ -90,6 +90,35 @@
             </objects>
             <point key="canvasLocation" x="1390.5" y="432.5"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="1l2-jV-cxg">
+            <objects>
+                <viewController id="9ks-YS-sqG" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="no1-Ub-26X"/>
+                        <viewControllerLayoutGuide type="bottom" id="tvQ-6a-94y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BEW-82-CKh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ZW-dt-kRN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="6Li-ud-VUA"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="0ZW-dt-kRN" id="1oK-Ya-usJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0tT-KD-VFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875.5" y="1058.5"/>
+        </scene>
         <!--Map-->
         <scene sceneID="XK9-62-5PN">
             <objects>
@@ -113,6 +142,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8g9-eN-n3P"/>
                         <segue destination="bo1-vV-nci" kind="relationship" relationship="viewControllers" id="467-pQ-Hks"/>
+                        <segue destination="9ks-YS-sqG" kind="relationship" relationship="viewControllers" id="uqd-Sa-aqL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vk8-Ky-KXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
