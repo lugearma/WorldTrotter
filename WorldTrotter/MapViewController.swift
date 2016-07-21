@@ -17,6 +17,21 @@ class MapViewController: UIViewController {
         self.mapView = MKMapView()
         self.view = mapView
         
+        addSegmentControl()
+        addButtonToLocalizeUser()
+    }
+    
+    func addButtonToLocalizeUser() {
+        let button = UIButton()
+        button.setTitle("User", forState: UIControlState.Normal)
+        button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0)
+        
+        self.view.addSubview(button)
+        
+    }
+    
+    func addSegmentControl() {
         let segmentControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
         segmentControl.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         segmentControl.selectedSegmentIndex = 0
