@@ -8,17 +8,33 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
     var mapView: MKMapView!
+    var locationManager: CLLocationManager!
     
     override func loadView() {
         self.mapView = MKMapView()
+        self.locationManager = CLLocationManager()
+//        self.mapView.showsUserLocation = true
+        self.mapView.delegate = self
         self.view = mapView
+        
         
         addSegmentControl()
         addButtonToLocalizeUser()
+        
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled(){
+        
+//            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.startUpdatingLocation()
+        }
     }
     
     func addButtonToLocalizeUser() {
@@ -27,8 +43,14 @@ class MapViewController: UIViewController {
         button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0)
         
+        button.addTarget(self, action:#selector(buttonTapped) , forControlEvents: UIControlEvents.TouchUpInside)
+        
         self.view.addSubview(button)
         
+    }
+    
+    func buttonTapped() {
+        self.mapView.showsUserLocation = true
     }
     
     func addSegmentControl() {
@@ -66,7 +88,29 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Map view controller loaded its view")
     }
     
 }
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        
+        var mapRegion = MKCoordinateRegion()
+        mapRegion.center = mapView.userLocation.coordinate
+        print("Latitude: \(mapView.userLocation.coordinate.latitude)")
+        print("Logitud: \(mapView.userLocation.coordinate.longitude)")
+        mapRegion.span.latitudeDelta = 0.2
+        mapRegion.span.longitudeDelta = 0.2
+        
+        mapView.regionThatFits(mapRegion)
+        
+        mapView.setRegion(mapRegion, animated: true)
+    }
+}
+
+
+
+
+
+
